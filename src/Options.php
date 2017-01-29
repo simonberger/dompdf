@@ -13,7 +13,7 @@ class Options
      */
     public static $OPTION_ALIAS_NAMES = array(
         'enable_php' => 'isPhpEnabled',
-        'enable_remote' => 'isRemotEnabled',
+        'enable_remote' => 'isRemoteEnabled',
         'enable_javascript' => 'isJavascriptEnabled',
         'enable_html5_parser' => 'isHtml5ParserEnabled',
         'enable_font_subsetting' => 'isFontSubsettingEnabled'
