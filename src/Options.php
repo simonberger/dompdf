@@ -348,6 +348,7 @@ class Options
 
         return $this;
     }
+
     /**
      * @param string $key
      * @return mixed
@@ -367,7 +368,7 @@ class Options
      */
     public function setRootDir($rootDir)
     {
-        $this->options['rootDir'] = $rootDir;
+        $this->optionResolver->resolve(array('rootDir' => $rootDir));
         return $this;
     }
 
@@ -385,7 +386,7 @@ class Options
      */
     public function setTempDir($tempDir)
     {
-        $this->options['tempDir'] = $tempDir;
+        $this->optionResolver->resolve(array('tempDir' => $tempDir));
         return $this;
     }
 
@@ -403,7 +404,7 @@ class Options
      */
     public function setFontDir($fontDir)
     {
-        $this->options['fontDir'] = $fontDir;
+        $this->optionResolver->resolve(array('fontDir' => $fontDir));
         return $this;
     }
 
@@ -439,7 +440,7 @@ class Options
      */
     public function setChroot($chroot)
     {
-        $this->options['chroot'] = $chroot;
+        $this->optionResolver->resolve(array('chroot' => $chroot));
         return $this;
     }
 
@@ -457,7 +458,7 @@ class Options
      */
     public function setLogOutputFile($logOutputFile)
     {
-        $this->options['logOutputFile'] = $logOutputFile;
+        $this->optionResolver->resolve(array('logOutputFile' => $logOutputFile));
         return $this;
     }
 
@@ -475,7 +476,7 @@ class Options
      */
     public function setDefaultMediaType($defaultMediaType)
     {
-        $this->options['defaultMediaType'] = $defaultMediaType;
+        $this->optionResolver->resolve(array('defaultMediaType' => $defaultMediaType));
         return $this;
     }
 
@@ -493,7 +494,7 @@ class Options
      */
     public function setDefaultPaperSize($defaultPaperSize)
     {
-        $this->options['defaultPaperSize'] = $defaultPaperSize;
+        $this->optionResolver->resolve(array('defaultPaperSize' => $defaultPaperSize));
         return $this;
     }
 
@@ -511,7 +512,7 @@ class Options
      */
     public function setDefaultPaperOrientation($defaultPaperOrientation)
     {
-        $this->options['defaultPaperOrientation'] = $defaultPaperOrientation;
+        $this->optionResolver->resolve(array('defaultPaperOrientation' => $defaultPaperOrientation));
         return $this;
     }
 
@@ -529,7 +530,7 @@ class Options
      */
     public function setDefaultFont($defaultFont)
     {
-        $this->options['defaultFont'] = $defaultFont;
+        $this->optionResolver->resolve(array('defaultFont' => $defaultFont));
         return $this;
     }
 
@@ -547,7 +548,7 @@ class Options
      */
     public function setDpi($dpi)
     {
-        $this->options['dpi'] = $dpi;
+        $this->optionResolver->resolve(array('dpi' => $dpi));
         return $this;
     }
 
@@ -565,7 +566,7 @@ class Options
      */
     public function setFontHeightRatio($fontHeightRatio)
     {
-        $this->options['fontHeightRatio'] = $fontHeightRatio;
+        $this->optionResolver->resolve(array('fontHeightRatio' => $fontHeightRatio));
         return $this;
     }
 
@@ -583,7 +584,7 @@ class Options
      */
     public function setIsPhpEnabled($isPhpEnabled)
     {
-        $this->options['isPhpEnabled'] = $isPhpEnabled;
+        $this->optionResolver->resolve(array('isPhpEnabled' => $isPhpEnabled));
         return $this;
     }
 
@@ -609,7 +610,7 @@ class Options
      */
     public function setIsRemoteEnabled($isRemoteEnabled)
     {
-        $this->options['isRemoteEnabled'] = $isRemoteEnabled;
+        $this->optionResolver->resolve(array('isRemoteEnabled' => $isRemoteEnabled));
         return $this;
     }
 
@@ -635,7 +636,7 @@ class Options
      */
     public function setIsJavascriptEnabled($isJavascriptEnabled)
     {
-        $this->options['isRemoteEnabled'] = $isJavascriptEnabled;
+        $this->optionResolver->resolve(array('isJavascriptEnabled' => $isJavascriptEnabled));
         return $this;
     }
 
@@ -644,7 +645,7 @@ class Options
      */
     public function getIsJavascriptEnabled()
     {
-        return $this->options['isRemoteEnabled'];
+        return $this->options['isJavascriptEnabled'];
     }
 
     /**
@@ -687,7 +688,7 @@ class Options
      */
     public function setIsFontSubsettingEnabled($isFontSubsettingEnabled)
     {
-        $this->options['isFontSubsettingEnabled'] = $isFontSubsettingEnabled;
+        $this->optionResolver->resolve(array('isFontSubsettingEnabled' => $isFontSubsettingEnabled));
         return $this;
     }
 
@@ -708,20 +709,12 @@ class Options
     }
 
     /**
-     * @return boolean
-     */
-    public function getDebugLayoutPaddingBox()
-    {
-        return $this->options['debugLayoutPaddingBox'];
-    }
-
-    /**
      * @param boolean $debugPng
      * @return $this
      */
     public function setDebugPng($debugPng)
     {
-        $this->options['debugPng'] = $debugPng;
+        $this->optionResolver->resolve(array('debugPng' => $debugPng));
         return $this;
     }
 
@@ -739,7 +732,7 @@ class Options
      */
     public function setDebugKeepTemp($debugKeepTemp)
     {
-        $this->options['debugKeepTemp'] = $debugKeepTemp;
+        $this->optionResolver->resolve(array('debugKeepTemp' => $debugKeepTemp));
         return $this;
     }
 
@@ -757,7 +750,7 @@ class Options
      */
     public function setDebugCss($debugCss)
     {
-        $this->options['debugCss'] = $debugCss;
+        $this->optionResolver->resolve(array('debugCss' => $debugCss));
         return $this;
     }
 
@@ -775,7 +768,7 @@ class Options
      */
     public function setDebugLayout($debugLayout)
     {
-        $this->options['debugLayout'] = $debugLayout;
+        $this->optionResolver->resolve(array('debugLayout' => $debugLayout));
         return $this;
     }
 
@@ -793,7 +786,7 @@ class Options
      */
     public function setDebugLayoutLines($debugLayoutLines)
     {
-        $this->options['debugLayoutLines'] = $debugLayoutLines;
+        $this->optionResolver->resolve(array('debugLayoutLines' => $debugLayoutLines));
         return $this;
     }
 
@@ -811,7 +804,7 @@ class Options
      */
     public function setDebugLayoutBlocks($debugLayoutBlocks)
     {
-        $this->options['debugLayoutBlocks'] = $debugLayoutBlocks;
+        $this->optionResolver->resolve(array('debugLayoutBlocks' => $debugLayoutBlocks));
         return $this;
     }
 
@@ -829,7 +822,7 @@ class Options
      */
     public function setDebugLayoutInline($debugLayoutInline)
     {
-        $this->options['debugLayoutInline'] = $debugLayoutInline;
+        $this->optionResolver->resolve(array('debugLayoutInline' => $debugLayoutInline));
         return $this;
     }
 
@@ -847,8 +840,16 @@ class Options
      */
     public function setDebugLayoutPaddingBox($debugLayoutPaddingBox)
     {
-        $this->options['debugLayoutPaddingBox'] = $debugLayoutPaddingBox;
+        $this->optionResolver->resolve(array('debugLayoutPaddingBox' => $debugLayoutPaddingBox));
         return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getDebugLayoutPaddingBox()
+    {
+        return $this->options['debugLayoutPaddingBox'];
     }
 
     /**
@@ -857,7 +858,7 @@ class Options
      */
     public function setPdfBackend($pdfBackend)
     {
-        $this->options['pdfBackend'] = $pdfBackend;
+        $this->optionResolver->resolve(array('pdfBackend' => $pdfBackend));
         return $this;
     }
 
@@ -875,7 +876,7 @@ class Options
      */
     public function setPdflibLicense($pdflibLicense)
     {
-        $this->options['pdflibLicense'] = $pdflibLicense;
+        $this->optionResolver->resolve(array('pdflibLicense' => $pdflibLicense));
         return $this;
     }
 
@@ -893,7 +894,7 @@ class Options
      */
     public function setAdminUsername($adminUsername)
     {
-        $this->options['adminUsername'] = $adminUsername;
+        $this->optionResolver->resolve(array('adminUsername' => $adminUsername));
         return $this;
     }
 
@@ -911,7 +912,7 @@ class Options
      */
     public function setAdminPassword($adminPassword)
     {
-        $this->options['adminPassword'] = $adminPassword;
+        $this->optionResolver->resolve(array('adminPassword' => $adminPassword));
         return $this;
     }
 
