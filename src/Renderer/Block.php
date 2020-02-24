@@ -22,7 +22,7 @@ class Block extends AbstractRenderer
     /**
      * @param Frame $frame
      */
-    function render(Frame $frame)
+    public function render(Frame $frame)
     {
         $style = $frame->get_style();
         $node = $frame->get_node();
@@ -33,10 +33,10 @@ class Block extends AbstractRenderer
 
         if ($node->nodeName === "body") {
             $h = $frame->get_containing_block("h") - (float)$style->length_in_pt([
-                        $style->margin_top,
-                        $style->border_top_width,
-                        $style->border_bottom_width,
-                        $style->margin_bottom],
+                    $style->margin_top,
+                    $style->border_top_width,
+                    $style->border_bottom_width,
+                    $style->margin_bottom],
                     (float)$style->length_in_pt($style->width));
         }
 
@@ -83,7 +83,7 @@ class Block extends AbstractRenderer
         }
 
         $id = $frame->get_node()->getAttribute("id");
-        if (strlen($id) > 0)  {
+        if (strlen($id) > 0) {
             $this->_canvas->add_named_dest($id);
         }
     }

@@ -127,7 +127,7 @@ class GD implements Canvas
      *
      * @var float
      */
-    const FONT_SCALE = 0.75;
+    public const FONT_SCALE = 0.75;
 
     /**
      * Class constructor

@@ -42,7 +42,7 @@ class Renderer extends AbstractRenderer
     /**
      * Advance the canvas to the next page
      */
-    function new_page()
+    public function new_page()
     {
         $this->_canvas->new_page();
     }
@@ -213,7 +213,7 @@ class Renderer extends AbstractRenderer
      * gets triggered on a frame
      *
      * @param string $event the type of event
-     * @param Frame $frame  the frame that event is triggered on
+     * @param Frame $frame the frame that event is triggered on
      */
     protected function _check_callbacks($event, $frame)
     {

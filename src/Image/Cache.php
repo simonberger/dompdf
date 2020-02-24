@@ -37,7 +37,7 @@ class Cache
     public static $broken_image = "data:image/svg+xml;charset=utf8,%3C?xml version='1.0'?%3E%3Csvg width='64' height='64' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Crect stroke='%23666666' id='svg_1' height='60.499994' width='60.166667' y='1.666669' x='1.999998' stroke-width='1.5' fill='none'/%3E%3Cline stroke-linecap='null' stroke-linejoin='null' id='svg_3' y2='59.333253' x2='59.749916' y1='4.333415' x1='4.250079' stroke-width='1.5' stroke='%23999999' fill='none'/%3E%3Cline stroke-linecap='null' stroke-linejoin='null' id='svg_4' y2='59.999665' x2='4.062838' y1='3.750342' x1='60.062164' stroke-width='1.5' stroke='%23999999' fill='none'/%3E%3C/g%3E%3C/svg%3E";
 
     public static $error_message = "Image not found or type unknown";
-    
+
     /**
      * Current dompdf instance
      *
@@ -48,19 +48,19 @@ class Cache
     /**
      * Resolve and fetch an image for use.
      *
-     * @param string $url       The url of the image
-     * @param string $protocol  Default protocol if none specified in $url
-     * @param string $host      Default host if none specified in $url
+     * @param string $url The url of the image
+     * @param string $protocol Default protocol if none specified in $url
+     * @param string $host Default host if none specified in $url
      * @param string $base_path Default path if none specified in $url
-     * @param Dompdf $dompdf    The Dompdf instance
+     * @param Dompdf $dompdf The Dompdf instance
      *
-     * @throws ImageException
      * @return array             An array with two elements: The local path to the image and the image extension
+     * @throws ImageException
      */
-    static function resolve_url($url, $protocol, $host, $base_path, Dompdf $dompdf)
+    public static function resolve_url($url, $protocol, $host, $base_path, Dompdf $dompdf)
     {
         self::$_dompdf = $dompdf;
-        
+
         $protocol = mb_strtolower($protocol);
         $parsed_url = Helpers::explode_url($url);
         $message = null;
@@ -156,7 +156,7 @@ class Cache
      * Unlink all cached images (i.e. temporary images either downloaded
      * or converted)
      */
-    static function clear()
+    public static function clear()
     {
         if (empty(self::$_cache) || self::$_dompdf->getOptions()->getDebugKeepTemp()) {
             return;
@@ -172,14 +172,14 @@ class Cache
         self::$_cache = [];
     }
 
-    static function detect_type($file, $context = null)
+    public static function detect_type($file, $context = null)
     {
         list(, , $type) = Helpers::dompdf_getimagesize($file, $context);
 
         return $type;
     }
 
-    static function is_broken($url)
+    public static function is_broken($url)
     {
         return $url === self::$broken_image;
     }

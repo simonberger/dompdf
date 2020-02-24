@@ -24,33 +24,33 @@ namespace Dompdf;
  */
 interface Canvas
 {
-    function __construct($paper = "letter", $orientation = "portrait", Dompdf $dompdf);
+    public function __construct($paper = "letter", $orientation = "portrait", Dompdf $dompdf);
 
     /**
      * @return Dompdf
      */
-    function get_dompdf();
+    public function get_dompdf();
 
     /**
      * Returns the current page number
      *
      * @return int
      */
-    function get_page_number();
+    public function get_page_number();
 
     /**
      * Returns the total number of pages
      *
      * @return int
      */
-    function get_page_count();
+    public function get_page_count();
 
     /**
      * Sets the total number of pages
      *
      * @param int $count
      */
-    function set_page_count($count);
+    public function set_page_count($count);
 
     /**
      * Draws a line from x1,y1 to x2,y2
@@ -67,7 +67,7 @@ interface Canvas
      * @param float $width
      * @param array $style
      */
-    function line($x1, $y1, $x2, $y2, $color, $width, $style = null);
+    public function line($x1, $y1, $x2, $y2, $color, $width, $style = null);
 
     /**
      * Draws a rectangle at x1,y1 with width w and height h
@@ -84,7 +84,7 @@ interface Canvas
      * @param float $width
      * @param array $style
      */
-    function rectangle($x1, $y1, $w, $h, $color, $width, $style = null);
+    public function rectangle($x1, $y1, $w, $h, $color, $width, $style = null);
 
     /**
      * Draws a filled rectangle at x1,y1 with width w and height h
@@ -97,7 +97,7 @@ interface Canvas
      * @param float $h
      * @param array $color
      */
-    function filled_rectangle($x1, $y1, $w, $h, $color);
+    public function filled_rectangle($x1, $y1, $w, $h, $color);
 
     /**
      * Starts a clipping rectangle at x1,y1 with width w and height h
@@ -107,7 +107,7 @@ interface Canvas
      * @param float $w
      * @param float $h
      */
-    function clipping_rectangle($x1, $y1, $w, $h);
+    public function clipping_rectangle($x1, $y1, $w, $h);
 
     /**
      * Starts a rounded clipping rectangle at x1,y1 with width w and height h
@@ -123,31 +123,31 @@ interface Canvas
      *
      * @return
      */
-    function clipping_roundrectangle($x1, $y1, $w, $h, $tl, $tr, $br, $bl);
+    public function clipping_roundrectangle($x1, $y1, $w, $h, $tl, $tr, $br, $bl);
 
     /**
      * Ends the last clipping shape
      */
-    function clipping_end();
+    public function clipping_end();
 
     /**
      * Save current state
      */
-    function save();
+    public function save();
 
     /**
      * Restore last state
      */
-    function restore();
+    public function restore();
 
     /**
      * Rotate
      *
      * @param float $angle angle in degrees for counter-clockwise rotation
-     * @param float $x     Origin abscissa
-     * @param float $y     Origin ordinate
+     * @param float $x Origin abscissa
+     * @param float $y Origin ordinate
      */
-    function rotate($angle, $x, $y);
+    public function rotate($angle, $x, $y);
 
     /**
      * Skew
@@ -157,17 +157,17 @@ interface Canvas
      * @param float $x Origin abscissa
      * @param float $y Origin ordinate
      */
-    function skew($angle_x, $angle_y, $x, $y);
+    public function skew($angle_x, $angle_y, $x, $y);
 
     /**
      * Scale
      *
      * @param float $s_x scaling factor for width as percent
      * @param float $s_y scaling factor for height as percent
-     * @param float $x   Origin abscissa
-     * @param float $y   Origin ordinate
+     * @param float $x Origin abscissa
+     * @param float $y Origin ordinate
      */
-    function scale($s_x, $s_y, $x, $y);
+    public function scale($s_x, $s_y, $x, $y);
 
     /**
      * Translate
@@ -175,7 +175,7 @@ interface Canvas
      * @param float $t_x movement to the right
      * @param float $t_y movement to the bottom
      */
-    function translate($t_x, $t_y);
+    public function translate($t_x, $t_y);
 
     /**
      * Transform
@@ -188,7 +188,7 @@ interface Canvas
      * @param $f
      * @return
      */
-    function transform($a, $b, $c, $d, $e, $f);
+    public function transform($a, $b, $c, $d, $e, $f);
 
     /**
      * Draws a polygon
@@ -214,7 +214,7 @@ interface Canvas
      * @param array $style
      * @param bool $fill Fills the polygon if true
      */
-    function polygon($points, $color, $width = null, $style = null, $fill = false);
+    public function polygon($points, $color, $width = null, $style = null, $fill = false);
 
     /**
      * Draws a circle at $x,$y with radius $r
@@ -231,7 +231,7 @@ interface Canvas
      * @param array $style
      * @param bool $fill Fills the circle if true
      */
-    function circle($x, $y, $r, $color, $width = null, $style = null, $fill = false);
+    public function circle($x, $y, $r, $color, $width = null, $style = null, $fill = false);
 
     /**
      * Add an image to the pdf.
@@ -246,7 +246,7 @@ interface Canvas
      * @param int $h height (in pixels)
      * @param string $resolution The resolution of the image
      */
-    function image($img_url, $x, $y, $w, $h, $resolution = "normal");
+    public function image($img_url, $x, $y, $w, $h, $resolution = "normal");
 
     /**
      * Add an arc to the PDF
@@ -262,7 +262,7 @@ interface Canvas
      * @param float $width
      * @param array $style
      */
-    function arc($x, $y, $r1, $r2, $astart, $aend, $color, $width, $style = []);
+    public function arc($x, $y, $r1, $r2, $astart, $aend, $color, $width, $style = []);
 
     /**
      * Writes text at the specified x and y coordinates
@@ -278,14 +278,14 @@ interface Canvas
      * @param float $char_space char spacing adjustment
      * @param float $angle angle
      */
-    function text($x, $y, $text, $font, $size, $color = [0, 0, 0], $word_space = 0.0, $char_space = 0.0, $angle = 0.0);
+    public function text($x, $y, $text, $font, $size, $color = [0, 0, 0], $word_space = 0.0, $char_space = 0.0, $angle = 0.0);
 
     /**
      * Add a named destination (similar to <a name="foo">...</a> in html)
      *
      * @param string $anchorname The name of the named destination
      */
-    function add_named_dest($anchorname);
+    public function add_named_dest($anchorname);
 
     /**
      * Add a link to the pdf
@@ -296,7 +296,7 @@ interface Canvas
      * @param float $width The width of the link
      * @param float $height The height of the link
      */
-    function add_link($url, $x, $y, $width, $height);
+    public function add_link($url, $x, $y, $width, $height);
 
     /**
      * Add meta information to the pdf
@@ -304,7 +304,7 @@ interface Canvas
      * @param string $name Label of the value (Creator, Producer, etc.)
      * @param string $value The text to set
      */
-    function add_info($name, $value);
+    public function add_info($name, $value);
 
     /**
      * Calculates text size, in points
@@ -317,7 +317,7 @@ interface Canvas
      *
      * @return float
      */
-    function get_text_width($text, $font, $size, $word_spacing = 0.0, $char_spacing = 0.0);
+    public function get_text_width($text, $font, $size, $word_spacing = 0.0, $char_spacing = 0.0);
 
     /**
      * Calculates font height, in points
@@ -327,7 +327,7 @@ interface Canvas
      *
      * @return float
      */
-    function get_font_height($font, $size);
+    public function get_font_height($font, $size);
 
     /**
      * Calculates font baseline, in points
@@ -337,14 +337,14 @@ interface Canvas
      *
      * @return float
      */
-    function get_font_baseline($font, $size);
+    public function get_font_baseline($font, $size);
 
     /**
      * Returns the PDF's width in points
      *
      * @return float
      */
-    function get_width();
+    public function get_width();
 
 
     /**
@@ -352,7 +352,7 @@ interface Canvas
      *
      * @return float
      */
-    function get_height();
+    public function get_height();
 
     /**
      * Returns the font x-height, in points
@@ -370,7 +370,7 @@ interface Canvas
      * @param float $opacity
      * @param string $mode
      */
-    function set_opacity($opacity, $mode = "Normal");
+    public function set_opacity($opacity, $mode = "Normal");
 
     /**
      * Sets the default view
@@ -388,21 +388,21 @@ interface Canvas
      *
      * @return void
      */
-    function set_default_view($view, $options = []);
+    public function set_default_view($view, $options = []);
 
     /**
      * @param string $script
      *
      * @return void
      */
-    function javascript($script);
+    public function javascript($script);
 
     /**
      * Starts a new page
      *
      * Subsequent drawing operations will appear on the new page.
      */
-    function new_page();
+    public function new_page();
 
     /**
      * Streams the PDF directly to the browser.
@@ -410,7 +410,7 @@ interface Canvas
      * @param string $filename The filename to present to the browser.
      * @param array $options Associative array: 'compress' => 1 or 0 (default 1); 'Attachment' => 1 or 0 (default 1).
      */
-    function stream($filename, $options = []);
+    public function stream($filename, $options = []);
 
     /**
      * Returns the PDF as a string.
@@ -418,5 +418,5 @@ interface Canvas
      * @param array $options Associative array: 'compress' => 1 or 0 (default 1).
      * @return string
      */
-    function output($options = []);
+    public function output($options = []);
 }

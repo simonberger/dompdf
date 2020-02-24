@@ -32,7 +32,7 @@ class CanvasFactory
      *
      * @return Canvas
      */
-    static function get_instance(Dompdf $dompdf, $paper = null, $orientation = null, $class = null)
+    public static function get_instance(Dompdf $dompdf, $paper = null, $orientation = null, $class = null)
     {
         $backend = strtolower($dompdf->getOptions()->getPdfBackend());
 
@@ -43,9 +43,7 @@ class CanvasFactory
                 class_exists("PDFLib", false)
             ) {
                 $class = "Dompdf\\Adapter\\PDFLib";
-            }
-
-            else {
+            } else {
                 if ($backend === "gd" && extension_loaded('gd')) {
                     $class = "Dompdf\\Adapter\\GD";
                 } else {

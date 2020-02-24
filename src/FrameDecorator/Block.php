@@ -38,7 +38,7 @@ class Block extends AbstractFrameDecorator
      * @param Frame $frame
      * @param Dompdf $dompdf
      */
-    function __construct(Frame $frame, Dompdf $dompdf)
+    public function __construct(Frame $frame, Dompdf $dompdf)
     {
         parent::__construct($frame, $dompdf);
 
@@ -49,7 +49,7 @@ class Block extends AbstractFrameDecorator
     /**
      *
      */
-    function reset()
+    public function reset()
     {
         parent::reset();
 
@@ -60,7 +60,7 @@ class Block extends AbstractFrameDecorator
     /**
      * @return LineBox
      */
-    function get_current_line_box()
+    public function get_current_line_box()
     {
         return $this->_line_boxes[$this->_cl];
     }
@@ -68,7 +68,7 @@ class Block extends AbstractFrameDecorator
     /**
      * @return integer
      */
-    function get_current_line_number()
+    public function get_current_line_number()
     {
         return $this->_cl;
     }
@@ -76,7 +76,7 @@ class Block extends AbstractFrameDecorator
     /**
      * @return LineBox[]
      */
-    function get_line_boxes()
+    public function get_line_boxes()
     {
         return $this->_line_boxes;
     }
@@ -85,7 +85,7 @@ class Block extends AbstractFrameDecorator
      * @param integer $line_number
      * @return integer
      */
-    function set_current_line_number($line_number)
+    public function set_current_line_number($line_number)
     {
         $line_boxes_count = count($this->_line_boxes);
         $cl = max(min($line_number, $line_boxes_count), 0);
@@ -95,7 +95,7 @@ class Block extends AbstractFrameDecorator
     /**
      * @param integer $i
      */
-    function clear_line($i)
+    public function clear_line($i)
     {
         if (isset($this->_line_boxes[$i])) {
             unset($this->_line_boxes[$i]);
@@ -105,7 +105,7 @@ class Block extends AbstractFrameDecorator
     /**
      * @param Frame $frame
      */
-    function add_frame_to_line(Frame $frame)
+    public function add_frame_to_line(Frame $frame)
     {
         if (!$frame->is_in_flow()) {
             return;
@@ -203,7 +203,7 @@ class Block extends AbstractFrameDecorator
     /**
      * @param Frame $frame
      */
-    function remove_frames_from_line(Frame $frame)
+    public function remove_frames_from_line(Frame $frame)
     {
         // Search backwards through the lines for $frame
         $i = $this->_cl;
@@ -250,7 +250,7 @@ class Block extends AbstractFrameDecorator
     /**
      * @param float $w
      */
-    function increase_line_width($w)
+    public function increase_line_width($w)
     {
         $this->_line_boxes[$this->_cl]->w += $w;
     }
@@ -259,7 +259,7 @@ class Block extends AbstractFrameDecorator
      * @param $val
      * @param Frame $frame
      */
-    function maximize_line_height($val, Frame $frame)
+    public function maximize_line_height($val, Frame $frame)
     {
         if ($val > $this->_line_boxes[$this->_cl]->h) {
             $this->_line_boxes[$this->_cl]->tallest_frame = $frame;
@@ -270,7 +270,7 @@ class Block extends AbstractFrameDecorator
     /**
      * @param bool $br
      */
-    function add_line($br = false)
+    public function add_line($br = false)
     {
 
 //     if ( $this->_line_boxes[$this->_cl]["h"] == 0 ) //count($this->_line_boxes[$i]["frames"]) == 0 ||

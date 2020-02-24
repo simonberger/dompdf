@@ -44,7 +44,7 @@ abstract class AbstractRenderer
      *
      * @param Dompdf $dompdf The current dompdf instance
      */
-    function __construct(Dompdf $dompdf)
+    public function __construct(Dompdf $dompdf)
     {
         $this->_dompdf = $dompdf;
         $this->_canvas = $dompdf->getCanvas();
@@ -57,17 +57,17 @@ abstract class AbstractRenderer
      *
      * @param Frame $frame The frame to render
      */
-    abstract function render(Frame $frame);
+    public abstract function render(Frame $frame);
 
     /**
      * Render a background image over a rectangular area
      *
-     * @param string $url   The background image to load
-     * @param float $x      The left edge of the rectangular area
-     * @param float $y      The top edge of the rectangular area
-     * @param float $width  The width of the rectangular area
+     * @param string $url The background image to load
+     * @param float $x The left edge of the rectangular area
+     * @param float $y The top edge of the rectangular area
+     * @param float $width The width of the rectangular area
      * @param float $height The height of the rectangular area
-     * @param Style $style  The associated Style object
+     * @param Style $style The associated Style object
      *
      * @throws \Exception
      */
@@ -958,7 +958,8 @@ abstract class AbstractRenderer
         $container_height,
         $bg_resize,
         $dpi
-    ) {
+    )
+    {
         // We got two some specific numbers and/or auto definitions
         if (is_array($bg_resize)) {
             $is_auto_width = $bg_resize[0] === 'auto';

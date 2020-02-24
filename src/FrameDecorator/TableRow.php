@@ -23,7 +23,7 @@ class TableRow extends AbstractFrameDecorator
      * @param Frame $frame
      * @param Dompdf $dompdf
      */
-    function __construct(Frame $frame, Dompdf $dompdf)
+    public function __construct(Frame $frame, Dompdf $dompdf)
     {
         parent::__construct($frame, $dompdf);
     }
@@ -34,7 +34,7 @@ class TableRow extends AbstractFrameDecorator
      * Remove all non table-cell frames from this row and move them after
      * the table.
      */
-    function normalise()
+    public function normalise()
     {
         // Find our table parent
         $p = TableFrameDecorator::find_parent_table($this);
@@ -54,10 +54,10 @@ class TableRow extends AbstractFrameDecorator
         }
     }
 
-    function split(Frame $child = null, $force_pagebreak = false)
+    public function split(Frame $child = null, $force_pagebreak = false)
     {
         $this->_already_pushed = true;
-        
+
         if (is_null($child)) {
             parent::split();
             return;

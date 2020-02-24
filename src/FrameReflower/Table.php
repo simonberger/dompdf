@@ -36,7 +36,7 @@ class Table extends AbstractFrameReflower
      * Table constructor.
      * @param TableFrameDecorator $frame
      */
-    function __construct(TableFrameDecorator $frame)
+    public function __construct(TableFrameDecorator $frame)
     {
         $this->_state = null;
         parent::__construct($frame);
@@ -45,7 +45,7 @@ class Table extends AbstractFrameReflower
     /**
      * State is held here so it needs to be reset along with the decorator
      */
-    function reset()
+    public function reset()
     {
         $this->_state = null;
         $this->_min_max_cache = null;
@@ -86,10 +86,10 @@ class Table extends AbstractFrameReflower
 
         if (!$centered) {
             $delta += (float)$style->length_in_pt([
-                    $style->padding_left,
-                    $style->border_left_width,
-                    $style->border_right_width,
-                    $style->padding_right],
+                $style->padding_left,
+                $style->border_left_width,
+                $style->border_right_width,
+                $style->padding_right],
                 $cb["w"]);
         }
 
@@ -376,7 +376,7 @@ class Table extends AbstractFrameReflower
     /**
      * @param BlockFrameDecorator $block
      */
-    function reflow(BlockFrameDecorator $block = null)
+    public function reflow(BlockFrameDecorator $block = null)
     {
         /** @var TableFrameDecorator */
         $frame = $this->_frame;
@@ -517,7 +517,7 @@ class Table extends AbstractFrameReflower
     /**
      * @return array|null
      */
-    function get_min_max_width()
+    public function get_min_max_width()
     {
         if (!is_null($this->_min_max_cache)) {
             return $this->_min_max_cache;

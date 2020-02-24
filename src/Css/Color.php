@@ -14,7 +14,7 @@ use Dompdf\Helpers;
 
 class Color
 {
-    static $cssColorNames = [
+    static public $cssColorNames = [
         "aliceblue" => "F0F8FF",
         "antiquewhite" => "FAEBD7",
         "aqua" => "00FFFF",

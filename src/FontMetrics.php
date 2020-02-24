@@ -33,7 +33,7 @@ class FontMetrics
      * This is typically done only from command line with load_font.php on converting
      * ttf fonts to ufm with php-font-lib.
      */
-    const CACHE_FILE = "dompdf_font_family_cache.php";
+    public const CACHE_FILE = "dompdf_font_family_cache.php";
 
     /**
      * @var Canvas

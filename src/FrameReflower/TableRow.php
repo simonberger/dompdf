@@ -23,7 +23,7 @@ class TableRow extends AbstractFrameReflower
      * TableRow constructor.
      * @param TableRowFrameDecorator $frame
      */
-    function __construct(TableRowFrameDecorator $frame)
+    public function __construct(TableRowFrameDecorator $frame)
     {
         parent::__construct($frame);
     }
@@ -31,7 +31,7 @@ class TableRow extends AbstractFrameReflower
     /**
      * @param BlockFrameDecorator|null $block
      */
-    function reflow(BlockFrameDecorator $block = null)
+    public function reflow(BlockFrameDecorator $block = null)
     {
         $page = $this->_frame->get_root();
 
@@ -67,7 +67,7 @@ class TableRow extends AbstractFrameReflower
     /**
      * @throws Exception
      */
-    function get_min_max_width()
+    public function get_min_max_width()
     {
         throw new Exception("Min/max width is undefined for table rows");
     }

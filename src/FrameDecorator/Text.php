@@ -31,7 +31,7 @@ class Text extends AbstractFrameDecorator
      * @param Dompdf $dompdf
      * @throws Exception
      */
-    function __construct(Frame $frame, Dompdf $dompdf)
+    public function __construct(Frame $frame, Dompdf $dompdf)
     {
         if (!$frame->is_text_node()) {
             throw new Exception("Text_Decorator can only be applied to #text nodes.");
@@ -41,7 +41,7 @@ class Text extends AbstractFrameDecorator
         $this->_text_spacing = null;
     }
 
-    function reset()
+    public function reset()
     {
         parent::reset();
         $this->_text_spacing = null;
@@ -52,7 +52,7 @@ class Text extends AbstractFrameDecorator
     /**
      * @return null
      */
-    function get_text_spacing()
+    public function get_text_spacing()
     {
         return $this->_text_spacing;
     }
@@ -60,7 +60,7 @@ class Text extends AbstractFrameDecorator
     /**
      * @return string
      */
-    function get_text()
+    public function get_text()
     {
         // FIXME: this should be in a child class (and is incorrect)
 //    if ( $this->_frame->get_style()->content !== "normal" ) {
@@ -93,7 +93,7 @@ class Text extends AbstractFrameDecorator
      *
      * @return float|int
      */
-    function get_margin_height()
+    public function get_margin_height()
     {
         // This function is called in add_frame_to_line() and is used to
         // determine the line height, so we actually want to return the
@@ -116,7 +116,7 @@ class Text extends AbstractFrameDecorator
     /**
      * @return array
      */
-    function get_padding_box()
+    public function get_padding_box()
     {
         $style = $this->_frame->get_style();
         $pb = $this->_frame->get_padding_box();
@@ -127,7 +127,7 @@ class Text extends AbstractFrameDecorator
     /**
      * @param $spacing
      */
-    function set_text_spacing($spacing)
+    public function set_text_spacing($spacing)
     {
         $style = $this->_frame->get_style();
 
@@ -143,7 +143,7 @@ class Text extends AbstractFrameDecorator
      *
      * @return float
      */
-    function recalculate_width()
+    public function recalculate_width()
     {
         $style = $this->get_style();
         $text = $this->get_text();
@@ -164,7 +164,7 @@ class Text extends AbstractFrameDecorator
      * @param $offset
      * @return Frame|null
      */
-    function split_text($offset)
+    public function split_text($offset)
     {
         if ($offset == 0) {
             return null;
@@ -188,7 +188,7 @@ class Text extends AbstractFrameDecorator
      * @param $offset
      * @param $count
      */
-    function delete_text($offset, $count)
+    public function delete_text($offset, $count)
     {
         $this->_frame->get_node()->deleteData($offset, $count);
     }
@@ -196,7 +196,7 @@ class Text extends AbstractFrameDecorator
     /**
      * @param $text
      */
-    function set_text($text)
+    public function set_text($text)
     {
         $this->_frame->get_node()->data = $text;
     }

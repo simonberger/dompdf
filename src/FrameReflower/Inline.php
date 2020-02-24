@@ -23,7 +23,7 @@ class Inline extends AbstractFrameReflower
      * Inline constructor.
      * @param Frame $frame
      */
-    function __construct(Frame $frame)
+    public function __construct(Frame $frame)
     {
         parent::__construct($frame);
     }
@@ -31,7 +31,7 @@ class Inline extends AbstractFrameReflower
     /**
      * @param BlockFrameDecorator|null $block
      */
-    function reflow(BlockFrameDecorator $block = null)
+    public function reflow(BlockFrameDecorator $block = null)
     {
         $frame = $this->_frame;
 

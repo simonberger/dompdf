@@ -19,7 +19,7 @@ class Absolute extends AbstractPositioner
     /**
      * @param AbstractFrameDecorator $frame
      */
-    function position(AbstractFrameDecorator $frame)
+    public function position(AbstractFrameDecorator $frame)
     {
         $style = $frame->get_style();
 

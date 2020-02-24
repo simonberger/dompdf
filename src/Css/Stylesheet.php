@@ -33,28 +33,28 @@ class Stylesheet
     /**
      * The location of the default built-in CSS file.
      */
-    const DEFAULT_STYLESHEET = "/lib/res/html.css";
+    public const DEFAULT_STYLESHEET = "/lib/res/html.css";
 
     /**
      * User agent stylesheet origin
      *
      * @var int
      */
-    const ORIG_UA = 1;
+    public const ORIG_UA = 1;
 
     /**
      * User normal stylesheet origin
      *
      * @var int
      */
-    const ORIG_USER = 2;
+    public const ORIG_USER = 2;
 
     /**
      * Author normal stylesheet origin
      *
      * @var int
      */
-    const ORIG_AUTHOR = 3;
+    public const ORIG_AUTHOR = 3;
 
     /*
      * The highest possible specificity is 0x01000000 (and that is only for author
@@ -77,7 +77,7 @@ class Stylesheet
      * to the beginning of an author stylesheet, i.e. anything in author stylesheets
      * should override them.
      */
-    const SPEC_NON_CSS = 0x20000000;
+    public const SPEC_NON_CSS = 0x20000000;
 
     /**
      * Current dompdf instance
@@ -151,9 +151,9 @@ class Stylesheet
      * If given, replace media "print" by Options::defaultMediaType.
      * (Previous version $ACCEPTED_MEDIA_TYPES = $ACCEPTED_GENERIC_MEDIA_TYPES + $ACCEPTED_DEFAULT_MEDIA_TYPE)
      */
-    static $ACCEPTED_DEFAULT_MEDIA_TYPE = "print";
-    static $ACCEPTED_GENERIC_MEDIA_TYPES = ["all", "static", "visual", "bitmap", "paged", "dompdf"];
-    static $VALID_MEDIA_TYPES = ["all", "aural", "bitmap", "braille", "dompdf", "embossed", "handheld", "paged", "print", "projection", "screen", "speech", "static", "tty", "tv", "visual"];
+    static public $ACCEPTED_DEFAULT_MEDIA_TYPE = "print";
+    static public $ACCEPTED_GENERIC_MEDIA_TYPES = ["all", "static", "visual", "bitmap", "paged", "dompdf"];
+    static public $VALID_MEDIA_TYPES = ["all", "aural", "bitmap", "braille", "dompdf", "embossed", "handheld", "paged", "print", "projection", "screen", "speech", "static", "tty", "tv", "visual"];
 
     /**
      * @var FontMetrics

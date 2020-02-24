@@ -41,7 +41,7 @@ class Image extends AbstractFrameDecorator
      * @param Frame $frame the frame to decorate
      * @param DOMPDF $dompdf the document's dompdf object (required to resolve relative & remote urls)
      */
-    function __construct(Frame $frame, Dompdf $dompdf)
+    public function __construct(Frame $frame, Dompdf $dompdf)
     {
         parent::__construct($frame, $dompdf);
         $url = $frame->get_node()->getAttribute("src");
@@ -73,7 +73,7 @@ class Image extends AbstractFrameDecorator
      *
      * @return string The url of this image
      */
-    function get_image_url()
+    public function get_image_url()
     {
         return $this->_image_url;
     }
@@ -83,7 +83,7 @@ class Image extends AbstractFrameDecorator
      *
      * @return string The image's error message
      */
-    function get_image_msg()
+    public function get_image_msg()
     {
         return $this->_image_msg;
     }

@@ -20,7 +20,7 @@ class Fixed extends AbstractPositioner
     /**
      * @param AbstractFrameDecorator $frame
      */
-    function position(AbstractFrameDecorator $frame)
+    public function position(AbstractFrameDecorator $frame)
     {
         $style = $frame->get_original_style();
         $root = $frame->get_root();

@@ -22,7 +22,7 @@ class ListBullet extends AbstractPositioner
     /**
      * @param AbstractFrameDecorator $frame
      */
-    function position(AbstractFrameDecorator $frame)
+    public function position(AbstractFrameDecorator $frame)
     {
 
         // Bullets & friends are positioned an absolute distance to the left of

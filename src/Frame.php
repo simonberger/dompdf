@@ -25,8 +25,8 @@ use Dompdf\Frame\FrameList;
  */
 class Frame
 {
-    const WS_TEXT = 1;
-    const WS_SPACE = 2;
+    public const WS_TEXT = 1;
+    public const WS_SPACE = 2;
 
     /**
      * The DOMElement or DOMText object this frame represents

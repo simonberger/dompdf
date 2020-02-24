@@ -23,10 +23,10 @@ class TableRowGroup extends AbstractFrameDecorator
     /**
      * Class constructor
      *
-     * @param Frame $frame   Frame to decorate
+     * @param Frame $frame Frame to decorate
      * @param Dompdf $dompdf Current dompdf instance
      */
-    function __construct(Frame $frame, Dompdf $dompdf)
+    public function __construct(Frame $frame, Dompdf $dompdf)
     {
         parent::__construct($frame, $dompdf);
     }
@@ -39,7 +39,7 @@ class TableRowGroup extends AbstractFrameDecorator
      *
      * @return void
      */
-    function split(Frame $child = null, $force_pagebreak = false)
+    public function split(Frame $child = null, $force_pagebreak = false)
     {
         if (is_null($child)) {
             parent::split();

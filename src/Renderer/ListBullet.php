@@ -25,7 +25,7 @@ class ListBullet extends AbstractRenderer
      * @param $type
      * @return mixed|string
      */
-    static function get_counter_chars($type)
+    public static function get_counter_chars($type)
     {
         static $cache = [];
 
@@ -131,7 +131,7 @@ class ListBullet extends AbstractRenderer
     /**
      * @param Frame $frame
      */
-    function render(Frame $frame)
+    public function render(Frame $frame)
     {
         $style = $frame->get_style();
         $font_size = $style->font_size;
@@ -173,7 +173,7 @@ class ListBullet extends AbstractRenderer
 
             switch ($bullet_style) {
                 default:
-                /** @noinspection PhpMissingBreakStatementInspection */
+                    /** @noinspection PhpMissingBreakStatementInspection */
                 case "disc":
                     $fill = true;
 
@@ -250,7 +250,7 @@ class ListBullet extends AbstractRenderer
         }
 
         $id = $frame->get_node()->getAttribute("id");
-        if (strlen($id) > 0)  {
+        if (strlen($id) > 0) {
             $this->_canvas->add_named_dest($id);
         }
     }

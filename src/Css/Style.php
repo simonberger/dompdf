@@ -29,29 +29,29 @@ use Dompdf\Helpers;
  */
 class Style
 {
-    const CSS_IDENTIFIER = "-?[_a-zA-Z]+[_a-zA-Z0-9-]*";
-    const CSS_INTEGER = "-?\d+";
+    public const CSS_IDENTIFIER = "-?[_a-zA-Z]+[_a-zA-Z0-9-]*";
+    public const CSS_INTEGER = "-?\d+";
 
     /**
      * Default font size, in points.
      *
      * @var float
      */
-    static $default_font_size = 12;
+    static public $default_font_size = 12;
 
     /**
      * Default line height, as a fraction of the font size.
      *
      * @var float
      */
-    static $default_line_height = 1.2;
+    static public $default_line_height = 1.2;
 
     /**
      * Default "absolute" font sizes relative to the default font-size
      * http://www.w3.org/TR/css3-fonts/#font-size-the-font-size-property
      * @var array<float>
      */
-    static $font_size_keywords = [
+    static public $font_size_keywords = [
         "xx-small" => 0.6, // 3/5
         "x-small" => 0.75, // 3/4
         "small" => 0.889, // 8/9
@@ -66,7 +66,7 @@ class Style
      *
      * @var array
      */
-    static $vertical_align_keywords = ["baseline", "bottom", "middle", "sub",
+    static public $vertical_align_keywords = ["baseline", "bottom", "middle", "sub",
         "super", "text-bottom", "text-top", "top"];
 
     /**
@@ -74,35 +74,35 @@ class Style
      *
      * @var array
      */
-    static $INLINE_TYPES = ["inline"];
+    static public $INLINE_TYPES = ["inline"];
 
     /**
      * List of all block types.  Should really be a constant.
      *
      * @var array
      */
-    static $BLOCK_TYPES = ["block", "inline-block", "table-cell", "list-item"];
+    static public $BLOCK_TYPES = ["block", "inline-block", "table-cell", "list-item"];
 
     /**
      * List of all positionned types.  Should really be a constant.
      *
      * @var array
      */
-    static $POSITIONNED_TYPES = ["relative", "absolute", "fixed"];
+    static public $POSITIONNED_TYPES = ["relative", "absolute", "fixed"];
 
     /**
      * List of all table types.  Should really be a constant.
      *
      * @var array;
      */
-    static $TABLE_TYPES = ["table", "inline-table"];
+    static public $TABLE_TYPES = ["table", "inline-table"];
 
     /**
      * List of valid border styles.  Should also really be a constant.
      *
      * @var array
      */
-    static $BORDER_STYLES = ["none", "hidden", "dotted", "dashed", "solid",
+    static public $BORDER_STYLES = ["none", "hidden", "dotted", "dashed", "solid",
         "double", "groove", "ridge", "inset", "outset"];
 
     /**
@@ -1300,7 +1300,7 @@ class Style
      * @link https://www.w3.org/TR/css3-background/#background-size
      * @return string|array
      */
-    function get_background_size()
+    public function get_background_size()
     {
         if (!isset($this->_props["background_size"])) {
             return explode(" ", self::$_defaults["background_size"]);
@@ -2085,7 +2085,7 @@ class Style
      * @link https://www.w3.org/TR/css3-background/#background-size
      * @param string $val
      */
-    function set_background_size($val)
+    public function set_background_size($val)
     {
         if (is_null($val)) {
             $val = self::$_defaults["background_size"];

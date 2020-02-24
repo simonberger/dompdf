@@ -17,7 +17,7 @@ use Dompdf\Frame;
  */
 class AttributeTranslator
 {
-    static $_style_attr = "_html_style_attribute";
+    static public $_style_attr = "_html_style_attribute";
 
     // Munged data originally from
     // http://www.w3.org/TR/REC-html40/index/attributes.html

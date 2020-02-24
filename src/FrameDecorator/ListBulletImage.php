@@ -44,10 +44,10 @@ class ListBulletImage extends AbstractFrameDecorator
     /**
      * Class constructor
      *
-     * @param Frame $frame   the bullet frame to decorate
+     * @param Frame $frame the bullet frame to decorate
      * @param Dompdf $dompdf the document's dompdf object
      */
-    function __construct(Frame $frame, Dompdf $dompdf)
+    public function __construct(Frame $frame, Dompdf $dompdf)
     {
         $style = $frame->get_style();
         $url = $style->list_style_image;
@@ -81,14 +81,14 @@ class ListBulletImage extends AbstractFrameDecorator
      *
      * @return int
      */
-    function get_width()
+    public function get_width()
     {
         //ignore image width, use same width as on predefined bullet ListBullet
         //for proper alignment of bullet image and text. Allow image to not fitting on left border.
         //This controls the distance between bullet image and text
         //return $this->_width;
         return $this->_frame->get_style()->get_font_size() * ListBullet::BULLET_SIZE +
-        2 * ListBullet::BULLET_PADDING;
+            2 * ListBullet::BULLET_PADDING;
     }
 
     /**
@@ -96,7 +96,7 @@ class ListBulletImage extends AbstractFrameDecorator
      *
      * @return int
      */
-    function get_height()
+    public function get_height()
     {
         //based on image height
         return $this->_height;
@@ -107,7 +107,7 @@ class ListBulletImage extends AbstractFrameDecorator
      *
      * @return int
      */
-    function get_margin_width()
+    public function get_margin_width()
     {
         //ignore image width, use same width as on predefined bullet ListBullet
         //for proper alignment of bullet image and text. Allow image to not fitting on left border.
@@ -134,7 +134,7 @@ class ListBulletImage extends AbstractFrameDecorator
      *
      * @return int
      */
-    function get_margin_height()
+    public function get_margin_height()
     {
         //Hits only on "inset" lists items, to increase height of box
         //based on image height
@@ -146,7 +146,7 @@ class ListBulletImage extends AbstractFrameDecorator
      *
      * @return string
      */
-    function get_image_url()
+    public function get_image_url()
     {
         return $this->_img->get_image_url();
     }

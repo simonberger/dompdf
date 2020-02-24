@@ -23,14 +23,14 @@ use Dompdf\Css\Style;
 class Block extends AbstractFrameReflower
 {
     // Minimum line width to justify, as fraction of available width
-    const MIN_JUSTIFY_WIDTH = 0.80;
+    public const MIN_JUSTIFY_WIDTH = 0.80;
 
     /**
      * @var BlockFrameDecorator
      */
     protected $_frame;
 
-    function __construct(BlockFrameDecorator $frame)
+    public function __construct(BlockFrameDecorator $frame)
     {
         parent::__construct($frame);
     }
@@ -168,8 +168,8 @@ class Block extends AbstractFrameReflower
     /**
      * Call the above function, but resolve max/min widths
      *
-     * @throws Exception
      * @return array
+     * @throws Exception
      */
     protected function _calculate_restricted_width()
     {
@@ -198,9 +198,9 @@ class Block extends AbstractFrameReflower
         $calculate_width = $this->_calculate_width($width);
         $margin_left = $calculate_width['margin_left'];
         $margin_right = $calculate_width['margin_right'];
-        $width =  $calculate_width['width'];
-        $left =  $calculate_width['left'];
-        $right =  $calculate_width['right'];
+        $width = $calculate_width['width'];
+        $left = $calculate_width['left'];
+        $right = $calculate_width['right'];
 
         // Handle min/max width
         $min_width = $style->length_in_pt($style->min_width, $cb["w"]);
@@ -218,9 +218,9 @@ class Block extends AbstractFrameReflower
             $calculate_width = $this->_calculate_width($min_width);
             $margin_left = $calculate_width['margin_left'];
             $margin_right = $calculate_width['margin_right'];
-            $width =  $calculate_width['width'];
-            $left =  $calculate_width['left'];
-            $right =  $calculate_width['right'];
+            $width = $calculate_width['width'];
+            $left = $calculate_width['left'];
+            $right = $calculate_width['right'];
         }
 
         return [$width, $margin_left, $margin_right, $left, $right];
@@ -553,7 +553,7 @@ class Block extends AbstractFrameReflower
      * Align inline children vertically.
      * Aligns each child vertically after each line is reflowed
      */
-    function vertical_align()
+    public function vertical_align()
     {
         $canvas = null;
 
@@ -580,7 +580,7 @@ class Block extends AbstractFrameReflower
                 $y_offset = 0;
 
                 //FIXME: The 0.8 ratio applied to the height is arbitrary (used to accommodate descenders?)
-                if($isInlineBlock) {
+                if ($isInlineBlock) {
                     $lineFrames = $line->get_frames();
                     if (count($lineFrames) == 1) {
                         continue;
@@ -673,7 +673,7 @@ class Block extends AbstractFrameReflower
     /**
      * @param Frame $child
      */
-    function process_clear(Frame $child)
+    public function process_clear(Frame $child)
     {
         $child_style = $child->get_style();
         $root = $this->_frame->get_root();
@@ -709,7 +709,7 @@ class Block extends AbstractFrameReflower
      * @param float $cb_x
      * @param float $cb_w
      */
-    function process_float(Frame $child, $cb_x, $cb_w)
+    public function process_float(Frame $child, $cb_x, $cb_w)
     {
         $child_style = $child->get_style();
         $root = $this->_frame->get_root();
@@ -765,7 +765,7 @@ class Block extends AbstractFrameReflower
      * @param BlockFrameDecorator $block
      * @return mixed|void
      */
-    function reflow(BlockFrameDecorator $block = null)
+    public function reflow(BlockFrameDecorator $block = null)
     {
 
         // Check if a page break is forced

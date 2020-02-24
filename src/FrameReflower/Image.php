@@ -24,7 +24,7 @@ class Image extends AbstractFrameReflower
      * Image constructor.
      * @param ImageFrameDecorator $frame
      */
-    function __construct(ImageFrameDecorator $frame)
+    public function __construct(ImageFrameDecorator $frame)
     {
         parent::__construct($frame);
     }
@@ -32,7 +32,7 @@ class Image extends AbstractFrameReflower
     /**
      * @param BlockFrameDecorator|null $block
      */
-    function reflow(BlockFrameDecorator $block = null)
+    public function reflow(BlockFrameDecorator $block = null)
     {
         $this->_frame->position();
 
@@ -55,7 +55,7 @@ class Image extends AbstractFrameReflower
     /**
      * @return array
      */
-    function get_min_max_width()
+    public function get_min_max_width()
     {
         if ($this->get_dompdf()->getOptions()->getDebugPng()) {
             // Determine the image's size. Time consuming. Only when really needed?

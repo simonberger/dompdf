@@ -345,7 +345,7 @@ class Text extends AbstractFrameReflower
     /**
      * @param BlockFrameDecorator|null $block
      */
-    function reflow(BlockFrameDecorator $block = null)
+    public function reflow(BlockFrameDecorator $block = null)
     {
         $frame = $this->_frame;
         $page = $frame->get_root();
@@ -356,7 +356,7 @@ class Text extends AbstractFrameReflower
         }
 
         $this->_block_parent = /*isset($block) ? $block : */
-        $frame->find_block_parent();
+            $frame->find_block_parent();
 
         // Left trim the text if this is the first text on the line and we're
         // collapsing white space
@@ -379,7 +379,7 @@ class Text extends AbstractFrameReflower
 
     // Returns an array(0 => min, 1 => max, "min" => min, "max" => max) of the
     // minimum and maximum widths of this frame
-    function get_min_max_width()
+    public function get_min_max_width()
     {
         /*if ( !is_null($this->_min_max_cache)  )
           return $this->_min_max_cache;*/
@@ -410,7 +410,7 @@ class Text extends AbstractFrameReflower
                 // This currently excludes the "narrow nbsp" character
                 $words = array_flip(preg_split('/([^\S\xA0]+|-+)/u', $str, -1, PREG_SPLIT_DELIM_CAPTURE));
                 $root = $this;
-                array_walk($words, function(&$chunked_text_width, $chunked_text) use ($font, $size, $word_spacing, $char_spacing, $root) {
+                array_walk($words, function (&$chunked_text_width, $chunked_text) use ($font, $size, $word_spacing, $char_spacing, $root) {
                     $chunked_text_width = $root->getFontMetrics()->getTextWidth($chunked_text, $font, $size, $word_spacing, $char_spacing);
                 });
 
@@ -421,7 +421,7 @@ class Text extends AbstractFrameReflower
             case "pre":
                 $lines = array_flip(preg_split("/\R/u", $str));
                 $root = $this;
-                array_walk($lines, function(&$chunked_text_width, $chunked_text) use ($font, $size, $word_spacing, $char_spacing, $root) {
+                array_walk($lines, function (&$chunked_text_width, $chunked_text) use ($font, $size, $word_spacing, $char_spacing, $root) {
                     $chunked_text_width = $root->getFontMetrics()->getTextWidth($chunked_text, $font, $size, $word_spacing, $char_spacing);
                 });
 
@@ -450,7 +450,7 @@ class Text extends AbstractFrameReflower
                 // Find the longest word (i.e. minimum length)
                 $lines = array_flip(preg_split("/\R/u", $text));
                 $root = $this;
-                array_walk($lines, function(&$chunked_text_width, $chunked_text) use ($font, $size, $word_spacing, $char_spacing, $root) {
+                array_walk($lines, function (&$chunked_text_width, $chunked_text) use ($font, $size, $word_spacing, $char_spacing, $root) {
                     $chunked_text_width = $root->getFontMetrics()->getTextWidth($chunked_text, $font, $size, $word_spacing, $char_spacing);
                 });
                 arsort($lines);

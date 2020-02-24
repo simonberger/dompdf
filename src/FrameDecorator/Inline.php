@@ -27,7 +27,7 @@ class Inline extends AbstractFrameDecorator
      * @param Frame $frame
      * @param Dompdf $dompdf
      */
-    function __construct(Frame $frame, Dompdf $dompdf)
+    public function __construct(Frame $frame, Dompdf $dompdf)
     {
         parent::__construct($frame, $dompdf);
     }
@@ -37,7 +37,7 @@ class Inline extends AbstractFrameDecorator
      * @param bool $force_pagebreak
      * @throws Exception
      */
-    function split(Frame $frame = null, $force_pagebreak = false)
+    public function split(Frame $frame = null, $force_pagebreak = false)
     {
         if (is_null($frame)) {
             $this->get_parent()->split($this, $force_pagebreak);

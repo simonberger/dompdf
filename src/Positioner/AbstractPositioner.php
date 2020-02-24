@@ -25,7 +25,7 @@ abstract class AbstractPositioner
      * @param AbstractFrameDecorator $frame
      * @return mixed
      */
-    abstract function position(AbstractFrameDecorator $frame);
+    public abstract function position(AbstractFrameDecorator $frame);
 
     /**
      * @param AbstractFrameDecorator $frame
@@ -33,7 +33,7 @@ abstract class AbstractPositioner
      * @param $offset_y
      * @param bool $ignore_self
      */
-    function move(AbstractFrameDecorator $frame, $offset_x, $offset_y, $ignore_self = false)
+    public function move(AbstractFrameDecorator $frame, $offset_x, $offset_y, $ignore_self = false)
     {
         list($x, $y) = $frame->get_position();
 

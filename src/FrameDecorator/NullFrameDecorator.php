@@ -22,7 +22,7 @@ class NullFrameDecorator extends AbstractFrameDecorator
      * @param Frame $frame
      * @param Dompdf $dompdf
      */
-    function __construct(Frame $frame, Dompdf $dompdf)
+    public function __construct(Frame $frame, Dompdf $dompdf)
     {
         parent::__construct($frame, $dompdf);
         $style = $this->_frame->get_style();

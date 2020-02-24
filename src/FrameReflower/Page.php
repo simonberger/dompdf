@@ -38,7 +38,7 @@ class Page extends AbstractFrameReflower
      * Page constructor.
      * @param PageFrameDecorator $frame
      */
-    function __construct(PageFrameDecorator $frame)
+    public function __construct(PageFrameDecorator $frame)
     {
         parent::__construct($frame);
     }
@@ -47,7 +47,7 @@ class Page extends AbstractFrameReflower
      * @param Frame $frame
      * @param $page_number
      */
-    function apply_page_style(Frame $frame, $page_number)
+    public function apply_page_style(Frame $frame, $page_number)
     {
         $style = $frame->get_style();
         $page_styles = $style->get_stylesheet()->get_page_styles();
@@ -91,7 +91,7 @@ class Page extends AbstractFrameReflower
      *
      * @param BlockFrameDecorator|null $block
      */
-    function reflow(BlockFrameDecorator $block = null)
+    public function reflow(BlockFrameDecorator $block = null)
     {
         $fixed_children = [];
         $prev_child = null;
@@ -175,7 +175,7 @@ class Page extends AbstractFrameReflower
      * gets triggered on a page
      *
      * @param string $event the type of event
-     * @param Frame $frame  the frame that event is triggered on
+     * @param Frame $frame the frame that event is triggered on
      */
     protected function _check_callbacks($event, $frame)
     {
@@ -188,7 +188,7 @@ class Page extends AbstractFrameReflower
         if (is_array($this->_callbacks) && isset($this->_callbacks[$event])) {
             $info = [
                 0 => $this->_canvas, "canvas" => $this->_canvas,
-                1 => $frame,         "frame"  => $frame,
+                1 => $frame, "frame" => $frame,
             ];
             $fs = $this->_callbacks[$event];
             foreach ($fs as $f) {

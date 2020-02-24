@@ -8,7 +8,7 @@ namespace Dompdf;
  */
 class Autoloader
 {
-    const PREFIX = 'Dompdf';
+    public const PREFIX = 'Dompdf';
 
     /**
      * Register the autoloader

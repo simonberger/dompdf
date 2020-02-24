@@ -21,7 +21,7 @@ class TableCell extends Block
      * TableCell constructor.
      * @param BlockFrameDecorator $frame
      */
-    function __construct(BlockFrameDecorator $frame)
+    public function __construct(BlockFrameDecorator $frame)
     {
         parent::__construct($frame);
     }
@@ -29,7 +29,7 @@ class TableCell extends Block
     /**
      * @param BlockFrameDecorator|null $block
      */
-    function reflow(BlockFrameDecorator $block = null)
+    public function reflow(BlockFrameDecorator $block = null)
     {
         $style = $this->_frame->get_style();
 
@@ -51,22 +51,22 @@ class TableCell extends Block
         $h = $this->_frame->get_containing_block("h");
 
         $left_space = (float)$style->length_in_pt([$style->margin_left,
-                $style->padding_left,
-                $style->border_left_width],
+            $style->padding_left,
+            $style->border_left_width],
             $w);
 
         $right_space = (float)$style->length_in_pt([$style->padding_right,
-                $style->margin_right,
-                $style->border_right_width],
+            $style->margin_right,
+            $style->border_right_width],
             $w);
 
         $top_space = (float)$style->length_in_pt([$style->margin_top,
-                $style->padding_top,
-                $style->border_top_width],
+            $style->padding_top,
+            $style->border_top_width],
             $h);
         $bottom_space = (float)$style->length_in_pt([$style->margin_bottom,
-                $style->padding_bottom,
-                $style->border_bottom_width],
+            $style->padding_bottom,
+            $style->border_bottom_width],
             $h);
 
         $style->width = $cb_w = $w - $left_space - $right_space;

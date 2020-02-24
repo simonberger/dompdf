@@ -22,7 +22,7 @@ class TableRowGroup extends AbstractFrameReflower
      * TableRowGroup constructor.
      * @param \Dompdf\Frame $frame
      */
-    function __construct($frame)
+    public function __construct($frame)
     {
         parent::__construct($frame);
     }
@@ -30,7 +30,7 @@ class TableRowGroup extends AbstractFrameReflower
     /**
      * @param BlockFrameDecorator|null $block
      */
-    function reflow(BlockFrameDecorator $block = null)
+    public function reflow(BlockFrameDecorator $block = null)
     {
         $page = $this->_frame->get_root();
 

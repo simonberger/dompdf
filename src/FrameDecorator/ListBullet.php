@@ -19,20 +19,20 @@ use Dompdf\Frame;
 class ListBullet extends AbstractFrameDecorator
 {
 
-    const BULLET_PADDING = 1; // Distance from bullet to text in pt
+    public const BULLET_PADDING = 1; // Distance from bullet to text in pt
     // As fraction of font size (including descent). See also DECO_THICKNESS.
-    const BULLET_THICKNESS = 0.04; // Thickness of bullet outline. Screen: 0.08, print: better less, e.g. 0.04
-    const BULLET_DESCENT = 0.3; //descent of font below baseline. Todo: Guessed for now.
-    const BULLET_SIZE = 0.35; // bullet diameter. For now 0.5 of font_size without descent.
+    public const BULLET_THICKNESS = 0.04; // Thickness of bullet outline. Screen: 0.08, print: better less, e.g. 0.04
+    public const BULLET_DESCENT = 0.3; //descent of font below baseline. Todo: Guessed for now.
+    public const BULLET_SIZE = 0.35; // bullet diameter. For now 0.5 of font_size without descent.
 
-    static $BULLET_TYPES = ["disc", "circle", "square"];
+    static public $BULLET_TYPES = ["disc", "circle", "square"];
 
     /**
      * ListBullet constructor.
      * @param Frame $frame
      * @param Dompdf $dompdf
      */
-    function __construct(Frame $frame, Dompdf $dompdf)
+    public function __construct(Frame $frame, Dompdf $dompdf)
     {
         parent::__construct($frame, $dompdf);
     }
@@ -40,7 +40,7 @@ class ListBullet extends AbstractFrameDecorator
     /**
      * @return float|int
      */
-    function get_margin_width()
+    public function get_margin_width()
     {
         $style = $this->_frame->get_style();
 
@@ -56,7 +56,7 @@ class ListBullet extends AbstractFrameDecorator
      *
      * @return float|int
      */
-    function get_margin_height()
+    public function get_margin_height()
     {
         $style = $this->_frame->get_style();
 
@@ -70,7 +70,7 @@ class ListBullet extends AbstractFrameDecorator
     /**
      * @return float|int
      */
-    function get_width()
+    public function get_width()
     {
         return $this->get_margin_width();
     }
@@ -78,7 +78,7 @@ class ListBullet extends AbstractFrameDecorator
     /**
      * @return float|int
      */
-    function get_height()
+    public function get_height()
     {
         return $this->get_margin_height();
     }

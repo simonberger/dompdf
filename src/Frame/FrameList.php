@@ -20,7 +20,7 @@ class FrameList implements IteratorAggregate
     /**
      * @param Frame $frame
      */
-    function __construct($frame)
+    public function __construct($frame)
     {
         $this->_frame = $frame;
     }
@@ -28,7 +28,7 @@ class FrameList implements IteratorAggregate
     /**
      * @return FrameListIterator
      */
-    function getIterator()
+    public function getIterator()
     {
         return new FrameListIterator($this->_frame);
     }

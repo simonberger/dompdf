@@ -22,7 +22,7 @@ class Inline extends AbstractRenderer
     /**
      * @param Frame $frame
      */
-    function render(Frame $frame)
+    public function render(Frame $frame)
     {
         $style = $frame->get_style();
 
@@ -118,7 +118,7 @@ class Inline extends AbstractRenderer
         }
 
         $id = $frame->get_node()->getAttribute("id");
-        if (strlen($id) > 0)  {
+        if (strlen($id) > 0) {
             $this->_canvas->add_named_dest($id);
         }
 

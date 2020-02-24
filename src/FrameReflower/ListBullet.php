@@ -22,7 +22,7 @@ class ListBullet extends AbstractFrameReflower
      * ListBullet constructor.
      * @param AbstractFrameDecorator $frame
      */
-    function __construct(AbstractFrameDecorator $frame)
+    public function __construct(AbstractFrameDecorator $frame)
     {
         parent::__construct($frame);
     }
@@ -30,7 +30,7 @@ class ListBullet extends AbstractFrameReflower
     /**
      * @param BlockFrameDecorator|null $block
      */
-    function reflow(BlockFrameDecorator $block = null)
+    public function reflow(BlockFrameDecorator $block = null)
     {
         $style = $this->_frame->get_style();
 
