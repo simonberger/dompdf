@@ -209,7 +209,7 @@ class AttributeTranslator
     /**
      * @param Frame $frame
      */
-    static function translate_attributes(Frame $frame)
+    public static function translate_attributes(Frame $frame)
     {
         $node = $frame->get_node();
         $tag = $node->nodeName;
@@ -274,7 +274,7 @@ class AttributeTranslator
      * @param \DOMElement $node
      * @param string $new_style
      */
-    static function append_style(\DOMElement $node, $new_style)
+    public static function append_style(\DOMElement $node, $new_style)
     {
         $style = rtrim($node->getAttribute(self::$_style_attr), ";");
         $style .= $new_style;

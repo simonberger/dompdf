@@ -166,7 +166,7 @@ class Stylesheet
      * The base protocol, host & path are initialized to those of
      * the current script.
      */
-    function __construct(Dompdf $dompdf)
+    public function __construct(Dompdf $dompdf)
     {
         $this->_dompdf = $dompdf;
         $this->setFontMetrics($dompdf->getFontMetrics());
@@ -185,7 +185,7 @@ class Stylesheet
      *
      * @param string $protocol
      */
-    function set_protocol($protocol)
+    public function set_protocol($protocol)
     {
         $this->_protocol = $protocol;
     }
@@ -195,7 +195,7 @@ class Stylesheet
      *
      * @param string $host
      */
-    function set_host($host)
+    public function set_host($host)
     {
         $this->_base_host = $host;
     }
@@ -205,7 +205,7 @@ class Stylesheet
      *
      * @param string $path
      */
-    function set_base_path($path)
+    public function set_base_path($path)
     {
         $this->_base_path = $path;
     }
@@ -215,7 +215,7 @@ class Stylesheet
      *
      * @return Dompdf
      */
-    function get_dompdf()
+    public function get_dompdf()
     {
         return $this->_dompdf;
     }
@@ -225,7 +225,7 @@ class Stylesheet
      *
      * @return string
      */
-    function get_protocol()
+    public function get_protocol()
     {
         return $this->_protocol;
     }
@@ -235,7 +235,7 @@ class Stylesheet
      *
      * @return string
      */
-    function get_host()
+    public function get_host()
     {
         return $this->_base_host;
     }
@@ -245,7 +245,7 @@ class Stylesheet
      *
      * @return string
      */
-    function get_base_path()
+    public function get_base_path()
     {
         return $this->_base_path;
     }
@@ -255,7 +255,7 @@ class Stylesheet
      *
      * @return Style[]
      */
-    function get_page_styles()
+    public function get_page_styles()
     {
         return $this->_page_styles;
     }
@@ -270,7 +270,7 @@ class Stylesheet
      *
      * @throws \Dompdf\Exception
      */
-    function add_style($key, Style $style)
+    public function add_style($key, Style $style)
     {
         if (!is_string($key)) {
             throw new Exception("CSS rule must be keyed by a string.");
@@ -295,7 +295,7 @@ class Stylesheet
      *
      * @Fixme _styles is a two dimensional array. It should produce wrong results
      */
-    function lookup($key)
+    public function lookup($key)
     {
         if (!isset($this->_styles[$key])) {
             return null;
@@ -310,7 +310,7 @@ class Stylesheet
      * @param Style $parent The style of this style's parent in the DOM tree
      * @return Style
      */
-    function create_style(Style $parent = null)
+    public function create_style(Style $parent = null)
     {
         if ($parent == null) {
             $parent = $this;
@@ -324,7 +324,7 @@ class Stylesheet
      * @param string $css
      * @param int $origin
      */
-    function load_css(&$css, $origin = self::ORIG_AUTHOR)
+    public function load_css(&$css, $origin = self::ORIG_AUTHOR)
     {
         if ($origin) {
             $this->_current_origin = $origin;
@@ -339,7 +339,7 @@ class Stylesheet
      * @param string $file
      * @param int $origin
      */
-    function load_css_file($file, $origin = self::ORIG_AUTHOR)
+    public function load_css_file($file, $origin = self::ORIG_AUTHOR)
     {
         if ($origin) {
             $this->_current_origin = $origin;
@@ -935,7 +935,7 @@ class Stylesheet
      *
      * @param \Dompdf\Frame\FrameTree $tree
      */
-    function apply_styles(FrameTree $tree)
+    public function apply_styles(FrameTree $tree)
     {
         // Use XPath to select nodes.  This would be easier if we could attach
         // Frame objects directly to DOMNodes using the setUserData() method, but
@@ -1714,7 +1714,7 @@ class Stylesheet
      *
      * @return string
      */
-    function __toString()
+    public function __toString()
     {
         $str = "";
         foreach ($this->_styles as $selector => $selector_styles) {

@@ -168,7 +168,7 @@ class Color
      * @param $color
      * @return array|mixed|null|string
      */
-    static function parse($color)
+    public static function parse($color)
     {
         if ($color === null) {
             return null;
@@ -283,7 +283,7 @@ class Color
      * @param float $alpha
      * @return array
      */
-    static function getArray($color, $alpha = 1.0)
+    public static function getArray($color, $alpha = 1.0)
     {
         $c = [null, null, null, null, "alpha" => $alpha, "hex" => null];
 
